@@ -15,6 +15,8 @@ section .text
             .start:
             cmp BYTE [rax], 0x0
             jz short .end
+            cmp BYTE [rax], sil
+            jz short .end
             inc rax
             jmp short .start
             .end:
