@@ -10,7 +10,7 @@ BITS 64
 section .text
     global memset
 
-        mmemset:
+        memset:
             xor rcx, rcx
             .start:
             cmp rcx, rdx
