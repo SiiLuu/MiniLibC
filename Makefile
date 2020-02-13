@@ -6,7 +6,8 @@
 ##
 
 SRCS = src/strlen.asm		\
-	   src/strchr.asm
+	   src/strchr.asm		\
+	   src/memset.asm
 
 NAME = libasm.so
 
