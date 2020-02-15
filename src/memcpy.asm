@@ -11,15 +11,18 @@ section .text
     global memcpy
 
         memcpy:
-            xor rcx, rcx
             xor bh, bh
+
             .start:
-            cmp rcx, rdx
-            jz short .end
-            mov bh, BYTE [rsi + rcx]
-            mov BYTE [rdi + rcx], bh
-            inc rcx
+            cmp rdx, 0
+            je .end
+            mov bh, BYTE [rsi]
+            mov BYTE [rdi], bh
+            dec rdx
+            inc rsi
+            inc rdi
             jmp short .start
+
             .end:
             mov rax, rdi
             ret
