@@ -12,23 +12,23 @@ section .text
 
         strcspn:
             xor dl, dl
-            mov rax, rdi
+            mov rax, rsi
 
             .start:
-            cmp BYTE [rsi], 0x0
-            jz short .end
             cmp BYTE [rax], 0x0
             jz short .incr
-            mov dl, BYTE [rsi]
+            cmp BYTE [rdi], 0x0
+            jz short .notfind
+            mov dl, BYTE [rdi]
             cmp BYTE [rax], dl
-            jz short .end
+            jz short .find
             inc rax
-            jmp short .start
-            
+            jmp .start
+
             .incr:
             xor rax, rax
-            mov rax, rdi
-            inc rsi
+            mov rax, rsi
+            inc rdi
             jmp short .start
 
             .end:
