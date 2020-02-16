@@ -4,7 +4,6 @@ gcc main.c -o exec
 echo "LIBC :"
 ./exec
 echo ""
-echo ""
 make re -s
 echo "MYLIB :"
 LD_PRELOAD=$PWD/libasm.so ./exec
