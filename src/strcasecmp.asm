@@ -53,7 +53,7 @@ section .text
             .verifsec:
             cmp BYTE [rsi], 0x0
             jz short .end
-            sub dl, BYTE [rsi]
+            add dl, BYTE [rsi]
             jmp short .end
 
             .veriffirst:

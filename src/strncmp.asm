@@ -9,31 +9,41 @@ BITS 64
 
 section .text
     global strncmp
-        strncmp:
 
-            xor ecx, ecx
+        strncmp:
             xor bl, bl
             xor cl, cl
 
             .start:
             cmp BYTE [rdi], 0x0
-            jz short .end
+            jz short .verifsec
             cmp BYTE [rsi], 0x0
+            jz short .veriffirst
+            cmp edx, 0
             jz short .end
-            cmp ecx, edx
-            jz short .end
-
-            cmp bl, cl
-            jne .end
+            
             add bl, BYTE [rdi]
             add cl, BYTE [rsi]
+            cmp bl, cl
+            jne .end
             inc rdi
             inc rsi
-            inc ecx
+            dec edx
             jmp .start
+
+            .verifsec:
+            cmp BYTE [rsi], 0x0
+            jz short .end
+            add cl, BYTE [rsi]
+            jmp short .end
+
+            .veriffirst:
+            cmp BYTE [rdi], 0x0
+            jz short .end
+            sub bl, BYTE [rdi]
+            jmp short .end
 
             .end:
             sub bl, cl
             movsx rax, bl
-
             ret

@@ -19,10 +19,11 @@ section .text
             jz short .verifsec
             cmp BYTE [rsi], 0x0
             jz short .veriffirst
-            cmp cl, dl
-            jne .end
+            
             add cl, BYTE [rdi]
             add dl, BYTE [rsi]
+            cmp cl, dl
+            jne .end
             inc rdi
             inc rsi
             jmp .start
@@ -30,7 +31,7 @@ section .text
             .verifsec:
             cmp BYTE [rsi], 0x0
             jz short .end
-            sub dl, BYTE [rsi]
+            add dl, BYTE [rsi]
             jmp short .end
 
             .veriffirst:
