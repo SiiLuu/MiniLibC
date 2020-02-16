@@ -16,9 +16,9 @@ section .text
 
             .start:
             cmp BYTE [rdi], 0x0
-            jz short .end
+            jz short .verifsec
             cmp BYTE [rsi], 0x0
-            jz short .end
+            jz short .veriffirst
             cmp cl, dl
             jne .end
             add cl, BYTE [rdi]
@@ -27,8 +27,19 @@ section .text
             inc rsi
             jmp .start
 
+            .verifsec:
+            cmp BYTE [rsi], 0x0
+            jz short .end
+            sub dl, BYTE [rsi]
+            jmp short .end
+
+            .veriffirst:
+            cmp BYTE [rdi], 0x0
+            jz short .end
+            sub dl, BYTE [rdi]
+            jmp short .end
+
             .end:
             sub cl, dl
             movsx rax, cl
-
             ret
