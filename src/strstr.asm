@@ -16,7 +16,7 @@ section .text
 
             .start:
             cmp BYTE [rdi], 0x0
-            jz short .end
+            jz short .notfound
             mov dl, BYTE [rsi]
             cmp BYTE [rdi], dl
             jz short .check
@@ -40,6 +40,10 @@ section .text
             dec rcx
             dec rdi
             jmp short .return
+
+            .notfound:
+            xor rax, rax
+            ret
 
             .end:
             mov rax, rdi
