@@ -14,7 +14,9 @@ SRCS = src/strlen.asm		\
 	   src/rindex.asm		\
 	   src/memmove.asm		\
 	   src/strcasecmp.asm	\
-	   src/strpbrk.asm
+	   src/strpbrk.asm		\
+	   src/strcspn.asm		\
+	   src/strstr.asm
 
 NAME = libasm.so
 
