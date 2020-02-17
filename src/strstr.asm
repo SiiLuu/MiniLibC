@@ -11,3 +11,5 @@ section .text
     global strstr
 
         strstr:
+
+        ret
