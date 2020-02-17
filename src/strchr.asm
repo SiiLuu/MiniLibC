@@ -11,13 +11,20 @@ section .text
     global strchr
 
         strchr:
+            xor rax, rax
             mov rax, rdi
+
             .start:
             cmp BYTE [rax], 0x0
-            jz short .end
+            jz short .notfound
             cmp BYTE [rax], sil
             jz short .end
             inc rax
             jmp short .start
+
+            .notfound:
+            xor rax, rax
+            ret
+
             .end:
             ret
