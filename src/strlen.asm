@@ -8,7 +8,7 @@
 BITS 64
 
 section .text
-    global strlen
+    global strlen:function
 
         strlen:
             mov rax, rdi

@@ -8,7 +8,7 @@
 BITS 64
 
 section .text
-    global strcasecmp
+    global strcasecmp:function
 
         strcasecmp:
             xor cl, cl

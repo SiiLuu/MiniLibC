@@ -8,7 +8,7 @@
 BITS 64
 
 section .text
-    global strcspn
+    global strcspn:function
 
         strcspn:
             xor dl, dl

@@ -8,7 +8,7 @@
 BITS 64
 
 section .text
-    global strchr
+    global strchr:function
 
         strchr:
             xor rax, rax

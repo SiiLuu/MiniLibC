@@ -8,7 +8,7 @@
 BITS 64
 
 section .text
-    global rindex
+    global rindex:function
         rindex:
             xor rax, rax
 

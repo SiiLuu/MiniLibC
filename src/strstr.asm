@@ -8,7 +8,7 @@
 BITS 64
 
 section .text
-    global strstr
+    global strstr:function
 
         strstr:
             xor dl, dl

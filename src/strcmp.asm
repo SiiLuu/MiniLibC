@@ -8,7 +8,7 @@
 BITS 64
 
 section .text
-    global strcmp
+    global strcmp:function
         strcmp:
 
             xor cl, cl

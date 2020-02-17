@@ -8,7 +8,7 @@
 BITS 64
 
 section .text
-    global memset
+    global memset:function
 
         memset:
             xor rcx, rcx

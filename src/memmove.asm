@@ -8,7 +8,7 @@
 BITS 64
 
 section .text
-    global memmove
+    global memmove:function
 
         memmove:
             xor bh, bh

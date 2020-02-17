@@ -8,7 +8,7 @@
 BITS 64
 
 section .text
-    global strpbrk
+    global strpbrk:function
 
         strpbrk:
             xor dl, dl

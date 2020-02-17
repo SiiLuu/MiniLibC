@@ -8,7 +8,7 @@
 BITS 64
 
 section .text
-    global strncmp
+    global strncmp:function
 
         strncmp:
             xor bl, bl

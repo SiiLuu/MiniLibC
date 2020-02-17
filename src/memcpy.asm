@@ -8,7 +8,7 @@
 BITS 64
 
 section .text
-    global memcpy
+    global memcpy:function
 
         memcpy:
             xor bh, bh
