@@ -33,4 +33,4 @@ section .text
 ;
             ;.end:
             ;sub rax, rdi
-            ;ret
+            ret
