@@ -10,6 +10,7 @@ BITS 64
 section .text
     global rindex
         rindex:
+            xor rax, rax
 
             .start:
             cmp BYTE [rdi], 0x0
