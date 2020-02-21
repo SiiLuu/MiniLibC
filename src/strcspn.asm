@@ -17,10 +17,10 @@ section .text
             mov rcx, rsi
 
             .start:
-            cmp BYTE [rcx], 0x0
-            jz short .incr
             cmp BYTE [rax], 0x0
             jz short .end
+            cmp BYTE [rcx], 0x0
+            jz short .incr
             mov dl, BYTE [rax]
             cmp BYTE [rcx], dl
             jz short .end
