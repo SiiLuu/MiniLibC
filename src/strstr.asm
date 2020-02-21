@@ -15,6 +15,8 @@ section .text
             xor rcx, rcx
 
             .start:
+            cmp BYTE [rsi], 0x0
+            jz short .end
             cmp BYTE [rdi], 0x0
             jz short .notfound
             mov dl, BYTE [rsi]
@@ -30,7 +32,7 @@ section .text
             mov dl, BYTE [rsi]
             cmp BYTE [rdi], dl
             jz short .check
-            cmp BYTE [rsi], 0x0 
+            cmp BYTE [rsi], 0x0
             jz short .return
             jmp short .start
 
