@@ -15,17 +15,16 @@ section .text
             xor cl, cl
 
             .start:
+            add bl, BYTE [rdi]
+            add cl, BYTE [rsi]
+            cmp bl, cl
+            jne .end
             cmp BYTE [rdi], 0x0
             jz short .verifsec
             cmp BYTE [rsi], 0x0
             jz short .veriffirst
             cmp edx, 0
             jz short .end
-            
-            add bl, BYTE [rdi]
-            add cl, BYTE [rsi]
-            cmp bl, cl
-            jne .end
             inc rdi
             inc rsi
             dec edx
