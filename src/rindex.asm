@@ -13,15 +13,17 @@ section .text
             xor rax, rax
 
             .start:
-            cmp BYTE [rdi], 0x0
-            jz short .end
             cmp BYTE [rdi], sil
             jz short .occ
+            cmp BYTE [rdi], 0x0
+            jz short .end
             inc rdi
             jmp .start
 
             .occ:
             mov rax, rdi
+            cmp BYTE [rax], sil
+            jz short .end
             inc rdi
             jmp .start
 
