@@ -29,11 +29,11 @@ section .text
             inc rcx
             inc rdi
             inc rsi
+            cmp BYTE [rsi], 0x0
+            jz short .return
             mov dl, BYTE [rsi]
             cmp BYTE [rdi], dl
             jz short .check
-            cmp BYTE [rsi], 0x0
-            jz short .return
             jmp short .start
 
             .return:
