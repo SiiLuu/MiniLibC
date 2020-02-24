@@ -15,10 +15,10 @@ section .text
             mov rax, rdi
 
             .start:
-            cmp BYTE [rax], 0x0
-            jz short .notfound
             cmp BYTE [rax], sil
             jz short .end
+            cmp BYTE [rax], 0x0
+            jz short .notfound
             inc rax
             jmp short .start
 
