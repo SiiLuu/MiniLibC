@@ -22,7 +22,7 @@ section .text
 
             .occ:
             mov rax, rdi
-            cmp BYTE [rax], sil
+            cmp BYTE [rdi], 0x0
             jz short .end
             inc rdi
             jmp .start
