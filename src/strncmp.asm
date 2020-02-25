@@ -23,11 +23,11 @@ section .text
             jz short .verifsec
             cmp BYTE [rsi], 0x0
             jz short .veriffirst
-            cmp edx, 0
+            cmp rdx, 0
             jz short .end
             inc rdi
             inc rsi
-            dec edx
+            dec rdx
             jmp .start
 
             .verifsec:
