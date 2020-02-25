@@ -19,7 +19,6 @@ section .text
             jz short .verifsec
             cmp BYTE [rsi], 0x0
             jz short .veriffirst
-
             add cl, BYTE [rdi]
             add dl, BYTE [rsi]
             cmp cl, dl
@@ -27,8 +26,17 @@ section .text
             inc rdi
             inc rsi
             jmp short .start
-            
+
             .up:
+            cmp BYTE [rdi], 65
+            jl short .end
+            cmp BYTE [rdi], 122
+            jg short .end
+            cmp BYTE [rsi], 65
+            jl short .end
+            cmp BYTE [rsi], 122
+            jg short .end
+
             add dl, 32
             cmp cl, dl
             jne short .lower
